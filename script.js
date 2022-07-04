@@ -16,25 +16,17 @@ function playRound(computer, player) {
     let result = 0;
 
     // 0 = Tie | 1 = Computer win | 2 = Player win
-    if (computer === player) { result = 0; }
-    if (computer === "rock" && player === "paper") { result = 2; }
-    if (computer === "rock" && player === "scissors") { result = 1; }
-    if (computer === "paper" && player === "rock") { result = 1; }
-    if (computer === "paper" && player === "scissors") { result = 2; }
-    if (computer === "scissors" && player === "paper") { result = 1; }
-    if (computer === "scissors" && player === "rock") { result = 2; }
+    if (computer === player) { result = 0; } else
+    if (computer === "rock" && player === "scissors") { result = 1; } else
+    if (computer === "paper" && player === "rock") { result = 1; } else
+    if (computer === "scissors" && player === "paper") { result = 1; } else
+    { result = 2; }
 
-    switch (result) {
-        case 0:
-            result = "TIE!";
-            break;
-        case 1:
-            result = "COMPUTER WINS!"
-            break;
-        case 2:
-            result = "PLAYER WINS!"
-            break;
-    }
+    let resultNum = result;
+
+    if (result == 0) { result = "TIE!"; } else
+    if (result == 1) { result = "COMPUTER WINS!"; } else
+    if (result == 2) { result = "PLAYER WINS!"; }
 
     return "Computer selected "+computer+" and player selected "+player+". Result is "+result;
 }
