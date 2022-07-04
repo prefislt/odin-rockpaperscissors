@@ -29,10 +29,6 @@ function playRound(computer, player) {
     return "Computer selected "+computer+" and player selected "+player+". Result is "+result;
 }
 
-let rounds = prompt("How many rounds you want to play:");
-rounds = parseFloat(rounds);
-game(rounds);
-
 function game(rounds) {
 
     let userScore = 0;
@@ -56,6 +52,18 @@ function game(rounds) {
     if (userScore > computerScore) { console.log("CONGRATULATIONS YOU WON AGAINST COMPUTER!")} else
     if (userScore < computerScore) { console.log("SADLY YOU LOST AGAINST COMPUTER, TRY AGAIN!") } else
     { console.log("NOBODY WON, DRAW!") }
-
 }
 
+function startGame() {
+    let rounds = prompt("How many rounds you want to play: (number from 3 to 100)");
+    rounds = parseFloat(rounds);
+
+    if (rounds >= 3 && rounds <= 100) {
+        game(rounds);
+    } else {
+        console.log("ERROR! Input valid number from 3 to 100!");
+        startGame();
+    }
+}
+
+startGame();
