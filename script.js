@@ -22,8 +22,6 @@ function playRound(computer, player) {
     if (computer === "scissors" && player === "paper") { result = 1; } else
     { result = 2; }
 
-    let resultNum = result;
-
     if (result == 0) { result = "TIE!"; } else
     if (result == 1) { result = "COMPUTER WINS!"; } else
     if (result == 2) { result = "PLAYER WINS!"; }
