@@ -29,6 +29,33 @@ function playRound(computer, player) {
     return "Computer selected "+computer+" and player selected "+player+". Result is "+result;
 }
 
-let playerInput = prompt("Input Rock(R) Paper(P) or Scissors(S):");
+let rounds = prompt("How many rounds you want to play:");
+rounds = parseFloat(rounds);
+game(rounds);
 
-console.log(playRound(computerPlay(), playerInput));
+function game(rounds) {
+
+    let userScore = 0;
+    let computerScore = 0;
+
+    for (let i=0; i<=rounds; i++) {
+        let playerInput = prompt("Input Rock(R) Paper(P) or Scissors(S):");
+        let saveResult = playRound(computerPlay(), playerInput);
+        
+        let roundResultArray = saveResult.split(' ');
+        let getResult = roundResultArray[roundResultArray.length - 2]+roundResultArray[roundResultArray.length - 1];
+
+        if (getResult == "PLAYERWINS!") { userScore++; }
+        if (getResult == "COMPUTERWINS!") { computerScore++; }
+
+        console.log(saveResult);
+        console.log("Current result is COMPUTER "+computerScore+" : "+userScore+" PLAYER")
+
+    }
+
+    if (userScore > computerScore) { console.log("CONGRATULATIONS YOU WON AGAINST COMPUTER!")} else
+    if (userScore < computerScore) { console.log("SADLY YOU LOST AGAINST COMPUTER, TRY AGAIN!") } else
+    { console.log("NOBODY WON, DRAW!") }
+
+}
+
