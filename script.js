@@ -54,16 +54,16 @@ function game(rounds) {
     { console.log("NOBODY WON, DRAW!") }
 }
 
-function startGame() {
-    let rounds = prompt("How many rounds you want to play: (number from 3 to 100)");
-    rounds = parseFloat(rounds);
+// function startGame() {
+//     let rounds = prompt("How many rounds you want to play: (number from 3 to 100)");
+//     rounds = parseFloat(rounds);
 
-    if (rounds >= 3 && rounds <= 100) {
-        game(rounds);
-    } else {
-        console.log("ERROR! Input valid number from 3 to 100!");
-        startGame();
-    }
-}
+//     if (rounds >= 3 && rounds <= 100) {
+//         game(rounds);
+//     } else {
+//         console.log("ERROR! Input valid number from 3 to 100!");
+//         startGame();
+//     }
+// }
 
 startGame();
