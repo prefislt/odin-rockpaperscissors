@@ -49,12 +49,18 @@ function game(rounds) {
 			result = playRound(computerPlay(), "scissors");
 		}
 
-		// Count score
+        let textResult = document.querySelector("#textResult");
+
+		// Count score and show text result
 		if (result[2] == 1) {
 			computerScore++;
+            textResult.textContent = "Computer win!";
 		} else if (result[2] == 2) {
 			playerScore++;
-		}
+            textResult.textContent = "Player win!";
+		} else {
+            textResult.textContent = "Tie!";
+        }
 
 		// Show score
 		document.querySelector("#playerScore").innerText = playerScore;
@@ -84,6 +90,7 @@ function game(rounds) {
 		} else if (result[0] == "scissors") {
 			cPick.innerText = scissors;
 		}
+
 
 		console.log(result); // debug
 	});
