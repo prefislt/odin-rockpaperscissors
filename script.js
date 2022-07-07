@@ -43,7 +43,7 @@ function game(maxScore) {
 			console.log("Player won!");
 		} else if (computerScore == maxScore) {
 			console.log("Computer won!");
-		} else { // Continue game if score below "max-score"
+		} else { // Continue game if scores below "max-score"
 			let selection = e.target.getAttribute("id");
 			if (selection == null) {
 				return;
@@ -100,8 +100,6 @@ function game(maxScore) {
 			} else if (result[0] == "scissors") {
 				cPick.innerText = scissors;
 			}
-
-			console.log(typeof playerScore);
 		}
 	});
 }
