@@ -39,7 +39,7 @@ function game(rounds) {
 			return;
 		}
 
-        // Getting game result
+		// Getting game result
 		let result = [];
 		if (selection == "rock") {
 			result = playRound(computerPlay(), "rock");
@@ -49,15 +49,41 @@ function game(rounds) {
 			result = playRound(computerPlay(), "scissors");
 		}
 
-        // Score
+		// Count score
 		if (result[2] == 1) {
 			computerScore++;
 		} else if (result[2] == 2) {
 			playerScore++;
 		}
 
-        document.querySelector("#playerScore").innerText = playerScore;
-        document.querySelector("#computerScore").innerText = computerScore;
+		// Show score
+		document.querySelector("#playerScore").innerText = playerScore;
+		document.querySelector("#computerScore").innerText = computerScore;
+
+		// Show picks
+		const rock = "✊";
+		const paper = "✋";
+		const scissors = "✌️";
+
+		let pPick = document.querySelector("#playerPick");
+		let cPick = document.querySelector("#computerPick");
+
+		// Player pick
+		if (selection == "rock") {
+			pPick.innerText = rock;
+		} else if (selection == "paper") {
+			pPick.innerText = paper;
+		} else if (selection == "scissors") {
+			pPick.innerText = scissors;
+		}
+		// Computer pick
+		if (result[0] == "rock") {
+			cPick.innerText = rock;
+		} else if (result[0] == "paper") {
+			cPick.innerText = paper;
+		} else if (result[0] == "scissors") {
+			cPick.innerText = scissors;
+		}
 
 		console.log(result); // debug
 	});
