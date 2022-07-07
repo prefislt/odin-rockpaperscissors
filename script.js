@@ -30,11 +30,9 @@ function playRound(computer, player) {
 	return result;
 }
 
-function game() {
+function game(maxScore) {
 	let playerScore = 0;
 	let computerScore = 0;
-
-    let maxScore = 5; // At what score pick a winner
 
 	document.querySelector(".buttons").addEventListener("click", function (e) {
 
@@ -110,4 +108,4 @@ function game() {
 
 // Start game function
 
-game();
+game(6);
