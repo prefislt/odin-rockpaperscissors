@@ -34,6 +34,10 @@ body p {
   font-size: 64pt;
 }
 
+#textResult {
+  font-style: italic;
+}
+
 .score {
   font-weight: 700;
   font-size: 24pt;
@@ -55,4 +59,48 @@ body p {
 .choose .buttons button {
   font-size: 32pt;
   cursor: pointer;
+}
+
+#gameover {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: fixed;
+  height: 100vh;
+  width: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: 0.2s ease-in-out;
+}
+#gameover p {
+  text-align: center;
+  font-weight: 700;
+  font-size: 30pt;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 700;
+  background-color: rgb(211, 116, 255);
+  color: white;
+  border: none;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(174, 1, 255);
+  transform: scale(1.1);
+}
+.btn:active {
+  background-color: rgb(174, 1, 255);
+  transform: scale(1);
+}
+
+.hidden {
+  display: none !important;
 }/*# sourceMappingURL=main.css.map */

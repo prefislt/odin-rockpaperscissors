@@ -34,16 +34,24 @@ function game(maxScore) {
 	let playerScore = 0;
 	let computerScore = 0;
 
-	document.querySelector(".buttons").addEventListener("click", function (e) {
+	let gameOver = document.querySelector("#gameover");
+	let gmResult = document.querySelector("#gmResult");
 
-        // Check who won
+	gameOver.classList.add("hidden"); // Hide game over screen
+
+	document.querySelector(".buttons").addEventListener("click", function (e) {
+		// Check who won and unhide game over screen
 		if (playerScore == maxScore && computerScore == maxScore) {
-			console.log("Tie! Nobody won...");
+			gmResult.innerText = "Tie! Nobody won...";
+			gameOver.classList.remove("hidden");
 		} else if (playerScore == maxScore) {
-			console.log("Player won!");
+			gmResult.innerText = "Player won!";
+			gameOver.classList.remove("hidden");
 		} else if (computerScore == maxScore) {
-			console.log("Computer won!");
-		} else { // Continue game if scores below "max-score"
+			gmResult.innerText = "Computer won!";
+			gameOver.classList.remove("hidden");
+		} else {
+			// Continue game if scores below "max-score"
 			let selection = e.target.getAttribute("id");
 			if (selection == null) {
 				return;
@@ -102,8 +110,13 @@ function game(maxScore) {
 			}
 		}
 	});
+
+    // Reload page when "play again" button is pressed
+    document.querySelector("#gmPlay").addEventListener("click", function(e) {
+        setTimeout(() => window.location.reload(), 200); // Added some delay so button animation have time to complete :D
+    })
 }
 
 // Start game function
 
-game(6);
+game(5);
